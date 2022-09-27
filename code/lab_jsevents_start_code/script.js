@@ -1,5 +1,14 @@
-const paragraphs = document.querySelectorAll(".toDo");
-console.log(paragraphs);
+const enter = document.querySelector("#enter");
+const input = document.querySelector("#new-todo");
+const list = document.querySelector("#list");
 
-paragraphs[0].innerText = "The DOM is a hierarchal representation of the HTML elements in your document";
-paragraphs[1].innerText = "It provides us with an API which allows us to traverse our HTML document securely";
+enter.addEventListener('click', () => {
+    const newInput = input.value;
+    const listItem = document.createElement("li");
+    const deleteBtn = document.createElement("button");
+    const deleteBtnText = document.createTextNode("Delete");
+    deleteBtn.appendChild(deleteBtnText);
+    listItem.innerText = newInput;
+    list.appendChild(listItem);
+    list.appendChild(deleteBtn);
+})
