@@ -7,6 +7,15 @@ const deleteFun = function (){
     let curList = listItem.parentNode;
     curList.removeChild(listItem);
 }
+const checkBoxFun= function(event){
+
+        if (event.currentTarget.checked) {
+          alert('checked');
+        } else {
+          alert('not checked');
+        }
+      }
+
 
 const addFun = function (){
     const newInput = input.value;
@@ -18,8 +27,14 @@ const addFun = function (){
     const deleteBtnText = document.createTextNode("Delete");
     deleteBtn.appendChild(deleteBtnText);
 
+    const checkBox = document.createElement("input");
+    checkBox.setAttribute("type","checkbox");
+
     listItem.appendChild(deleteBtn);
+    listItem.appendChild(checkBox);
     list.appendChild(listItem);
+    checkBox.addEventListener('change', checkBoxFun);
+       
 
     deleteBtn.addEventListener('click', deleteFun);
 }
